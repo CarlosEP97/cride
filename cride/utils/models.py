@@ -15,7 +15,7 @@ class CRideModel(models.Model):
     """
 
     created = models.DateTimeField(
-        'created at',
+        'created at', # text help
         auto_now_add=True,
         help_text='Date time on which the object was created.'
     )
