@@ -5,6 +5,7 @@ from django.db import models
 
 # Utilities
 from cride.utils.models import CRideModel
+from .users import User
 
 
 class Profile(CRideModel):
@@ -14,7 +15,7 @@ class Profile(CRideModel):
     and statistics.
     """
 
-    user = models.OneToOneField('users.User', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
     picture = models.ImageField(
         'profile picture',
