@@ -15,7 +15,7 @@
 
 """Circles URLs."""
 
-app_name = 'circles'
+# app_name = 'circles'
 
 # Django
 from django.urls import include, path
@@ -24,10 +24,13 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
 # Views
-from cride.circles.views.circleViews import CircleViewSet as circle_views
+from cride.circles.views.circleViews import CircleViewSet
+from cride.circles.views.membershipsViews import MembershipViewSet
 
 router = DefaultRouter()
-router.register(r'', circle_views, basename='circle')
+router.register(r'', CircleViewSet, basename='circle')
+router.register(r'(?P<slug_name>[a-zA-Z0-9_-]+)/members', MembershipViewSet,basename='membership'
+)
 
 urlpatterns = [
     path('', include(router.urls))

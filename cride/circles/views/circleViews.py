@@ -38,7 +38,7 @@ class CircleViewSet(mixins.CreateModelMixin,
     def perform_create(self,serializer):
         """"assign circle admin"""
         # print(serializer) model serializer itself
-        circle = serializer.save()
+        circle = serializer.save() # circle instance create
         user = self.request.user
         profile = user.profile
         Membership.objects.create(

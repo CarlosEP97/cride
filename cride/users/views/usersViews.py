@@ -58,11 +58,11 @@ class UserViewSet(mixins.RetrieveModelMixin,
         """update profile data"""
         user = self.get_object()
         profile = user.profile
-        partial = request.method == 'PATCH'
+        # partial = request.method == 'PATCH'
         serializer = ProfileModelSerializer(
             profile,
             data=request.data,
-            partial=partial
+            partial=True
             )
         serializer.is_valid(raise_exception=True)
         serializer.save()
